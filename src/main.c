@@ -9,6 +9,7 @@ int main(){
         fgets(user_input,sizeof(user_input),stdin);
         user_input[strcspn(user_input,"\n")] = '\0';
         if (strcmp(user_input,"exit") == 0){
+            printf("Exiting Larp OS ...\n");
             break;
         }
         else if (strcmp(user_input,"whoami") == 0){
