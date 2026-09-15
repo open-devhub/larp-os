@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
+#include "include/bootloader.h"
 int main(){
+    bootloader();
     char user_input[50] = "";
     char larper_whoami[20] = "master larper";
     printf("Welcome To Larp OS\n");
@@ -15,6 +17,7 @@ int main(){
         else if (strcmp(user_input,"whoami") == 0){
             printf("%s\n",larper_whoami);
         }
+
     }
     return 0;
 }
