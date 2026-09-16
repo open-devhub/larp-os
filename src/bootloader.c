@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <conio.h>
 #include <stdlib.h>
 #include "include/bootloader.h"
 
@@ -12,8 +11,9 @@ void bootloader(){
     printf("1 : Larp OS\n");
     printf("Choose Boot Option\n $ ");
 
-    char c = getch();
-    bootloader_option = c - '0';
+    char buff[3];
+    fgets(buff, sizeof(buff), stdin);
+    bootloader_option = buff[0] - '0';
     
     if (bootloader_option == 1){
         printf("\nLarp Is Loading...\n");
