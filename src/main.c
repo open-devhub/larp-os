@@ -6,9 +6,10 @@ int main(){
     bootloader();
     char user_input[50] = "";
     char larper_whoami[20] = "master larper";
+    char hostname[20] = "larper";
     printf("Welcome To Larp OS\n");
     while (1){
-        printf("larp-os $ ");
+        printf("larp-os@%s $ ",hostname);
         fgets(user_input,sizeof(user_input),stdin);
         user_input[strcspn(user_input,"\n")] = '\0';
         if (strcmp(user_input,"exit") == 0){
