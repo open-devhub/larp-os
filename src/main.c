@@ -1,3 +1,4 @@
+#include <cstring>
 #include <stdio.h>
 #include <string.h>
 #include "include/bootloader.h"
@@ -18,7 +19,7 @@ int main(){
         else if (strcmp(user_input,"whoami") == 0){
             printf("%s\n",larper_whoami);
         }
-        else if (strcmp(user_input,"--version") == 0){
+        else if (strcmp(user_input,"version") == 0){
             printf("%s\n",VERSION);
         }
 
