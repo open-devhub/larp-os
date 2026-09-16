@@ -25,9 +25,11 @@ int main(){
         else if (strcmp(user_input,"uname") == 0){
             printf("Larp OS %s\n",VERSION);
 
-
-
         }
+        else if (strncmp(user_input,"echo",4) == 0){
+           char *echo_pointer = &user_input[5];
+           printf("%s\n",echo_pointer);
+       }
 
 
     }
