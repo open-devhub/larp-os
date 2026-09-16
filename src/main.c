@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "include/bootloader.h"
+#include "include/version.h"
 int main(){
     bootloader();
     char user_input[50] = "";
@@ -17,6 +18,10 @@ int main(){
         else if (strcmp(user_input,"whoami") == 0){
             printf("%s\n",larper_whoami);
         }
+        else if (strcmp(user_input,"version") == 0){
+            printf("%s\n",VERSION);
+        }
+
 
     }
     return 0;
