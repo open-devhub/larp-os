@@ -23,7 +23,7 @@ int main(){
             printf("%s\n",VERSION);
         }
         else if (strcmp(user_input,"uname") == 0){
-            printf("%s\n",HOSTNAME);
+            printf("Larp OS %s\n",VERSION);
 
 
 
