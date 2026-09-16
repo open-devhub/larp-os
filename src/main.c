@@ -22,7 +22,7 @@ int main(){
         else if (strcmp(user_input,"version") == 0){
             printf("%s\n",VERSION);
         }
-        else if (strcmp(user_input,"uname -a") == 0){
+        else if (strcmp(user_input,"uname -n") == 0){
             printf("%s\n",HOSTNAME);
 
 
