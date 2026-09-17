@@ -2,7 +2,6 @@
 #include <string.h>
 #include "include/bootloader.h"
 #include "include/version.h"
-#include "include/os_name.h"
 #include "include/split_string.h"
 
 
