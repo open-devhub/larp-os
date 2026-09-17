@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <string.h>
+
+#include "include/vfs.h"
 #include "include/bootloader.h"
 #include "include/version.h"
 #include "include/split_string.h"
