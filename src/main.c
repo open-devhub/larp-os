@@ -19,7 +19,7 @@ int main() {
     char *temp = calloc(1, 72);
     char os_info[3][24];
 
-    VFSNode *config_node = vfs_open("/etc/os-info");
+    VFSNode *config_node = vfs_open("/etc/os-info", VFS_MODE_READ);
     if (config_node == NULL) {
         free(temp);
 
@@ -71,8 +71,6 @@ int main() {
                 printf("%s\n", OS_HOSTNAME);
             } else if (argc == 1) {
                 printf("%s %s\n", OS_NAME, OS_VERSION);
-            } else if (strcmp(argv[1],"-m") == 0) {
-                printf("%s\n",OS_ARCHITECTURE);
             }
             else {
                 printf("uname: Invalid argument\n");
