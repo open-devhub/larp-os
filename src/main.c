@@ -23,7 +23,7 @@ int main() {
         }
 
         user_input[strcspn(user_input, "\n")] = '\0';
-        int argc = split_string(user_input,&argv);
+        int argc = split_string(user_input, &argv);
 
         if (strcmp(argv[0], "exit") == 0){
             printf("Exiting Larp OS...\n");
@@ -49,9 +49,14 @@ int main() {
             since it takes only 1 argument that can have spaces in between them without using double quotes
             to denote a string. So using argv to check echo is not optimal.
         */
-        } else if (strncmp(user_input, "echo ", 5) == 0) {
-            printf("%s\n", &user_input[5]);
+        } else if (strncmp(argv[0], "echo", 4) == 0) {
+            for (int i = 1; i < argc; i++) {
+                fputs(argv[i], stdout);
 
+                if (i < argc - 1) putchar(' ');
+            }
+
+            putchar('\n');
         } else if (strlen(user_input) == 0){
             continue;
         } else {
