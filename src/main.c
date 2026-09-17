@@ -12,7 +12,7 @@ int main() {
 
     bootloader();
     printf("Welcome to %s\n", OS_NAME);
-    
+
     while (1){
         memset(user_input, 0, sizeof(user_input));
         memset(argv, 0, 6 * 64);
@@ -45,12 +45,19 @@ int main() {
             }
 
         } else if (strncmp(argv[0], "echo", 4) == 0) {
-            for (int i = 1; i < argc; i++) {
-                fputs(argv[i], stdout);
+            if (strcmp(argv[1],"--help") == 0){
+                printf("usage: echo [text] \n");
+            } else if (argc < 2) {
+                printf("usage: echo [text]\n");
+            } else{
+                for (int i = 1; i < argc; i++) {
+                    fputs(argv[i], stdout);
 
-                if (i < argc - 1) putchar(' ');
+                    if (i < argc - 1) putchar(' ');
+                }
+                putchar('\n');
             }
-            putchar('\n');
+
 
         } else if (strlen(user_input) == 0){
             continue;
