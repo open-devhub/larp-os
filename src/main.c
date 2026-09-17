@@ -3,6 +3,7 @@
 #include "include/bootloader.h"
 #include "include/version.h"
 #include "include/hostname.h"
+#include "include/os_name.h"
 int main(){
     bootloader();
     char user_input[50] = "";
@@ -23,7 +24,7 @@ int main(){
             printf("%s\n",VERSION);
         }
         else if (strcmp(user_input,"uname") == 0){
-            printf("Larp OS %s\n",VERSION);
+            printf("%s %s\n",NAME,VERSION);
 
         }
         else if (strncmp(user_input,"echo",4) == 0){
