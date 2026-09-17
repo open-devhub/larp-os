@@ -1,17 +1,26 @@
-#include <string.h>
 #include "include/split_string.h"
 
+int split_string(char *str, char delim, int max_tokens, int max_len, char tokens[max_tokens][max_len]) {
+    int count = 0;
+    int char_idx = 0;
 
-int split_string(char *str, char (*argv_ptr)[6][64]){
-    int argc = 0;
-    char *token = strtok(str," \t\n");
+    if (!str || !tokens || max_tokens <= 0 || max_len <= 0) return 0;
 
-    while (token != NULL && argc < 6) {
-        strncpy((*argv_ptr)[argc],token, 64);
-        (*argv_ptr)[argc][63] = '\0';
-        argc++;
-        token = strtok(NULL," \t\n");
+    while (*str && count < max_tokens) {
+        if (*str == delim) {
+            tokens[count][char_idx] = '\0';
+            count++;
+            char_idx = 0;
+        } else if (char_idx < max_len - 1) {
+            tokens[count][char_idx++] = *str;
+        }
+        str++;
     }
 
-    return argc;
+    if (count < max_tokens) {
+        tokens[count][char_idx] = '\0';
+        count++;
+    }
+
+    return count;
 }
