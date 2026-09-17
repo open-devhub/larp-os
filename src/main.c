@@ -30,7 +30,6 @@ int main() {
     int r = vfs_read(config_node, temp, 64);
     int os_info_split_count = split_string(temp, ';', 3, 24, os_info);
     
-    printf("%d %s\n", r, temp);
     free(temp);
     if (os_info_split_count != 3) {
         printf("Error: failed to parse /etc/os-info: %d\n", os_info_split_count);
