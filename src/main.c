@@ -40,7 +40,10 @@ int main() {
                 printf("%s\n", OS_HOSTNAME);
             } else if (argc == 1) {
                 printf("%s %s\n", OS_NAME, OS_VERSION);
-            } else {
+            } else if (strcmp(argv[1],"-m") == 0) {
+                printf("%s\n",OS_ARCHITECTURE);
+            }
+            else {
                 printf("uname: Invalid argument\n");
             }
 
