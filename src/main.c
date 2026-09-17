@@ -34,7 +34,12 @@ int main(){
             printf("%s\n",VERSION);
         }
         else if (strcmp(argv[0],"uname") == 0){
-            printf("%s %s\n",NAME,VERSION);
+            if (strcmp(argv[1],"-n") == 0){
+                printf("%s\n",HOSTNAME);
+            }
+            else{
+                printf("%s %s\n",NAME,VERSION);
+            }
 
         }
         else if (strncmp(argv[0],"echo",4) == 0){
