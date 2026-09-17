@@ -48,7 +48,7 @@ int main() {
             if (strcmp(argv[1],"--help") == 0){
                 printf("usage: echo [text] \n");
             } else if (argc < 2) {
-                printf("usage: echo [text]\n");
+                printf("\n");
             } else{
                 for (int i = 1; i < argc; i++) {
                     fputs(argv[i], stdout);
