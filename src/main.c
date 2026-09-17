@@ -31,6 +31,9 @@ int main(){
            char *echo_pointer = &user_input[5];
            printf("%s\n",echo_pointer);
        }
+        else if (strlen(user_input) == 0){
+            continue;
+        }
 
 
     }
