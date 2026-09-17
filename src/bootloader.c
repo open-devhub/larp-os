@@ -18,8 +18,7 @@ void bootloader(){
     if (bootloader_option == 1){
         printf("\nLarp Is Loading...\n");
         printf("Loading Larp OS...\n");
-    }
-    else{
+    } else {
         printf("Boot Entry Doesnt Exist\n");
         exit(1);
     }
