@@ -23,7 +23,7 @@ int main() {
         }
 
         user_input[strcspn(user_input, "\n")] = '\0';
-        int argc = split_string(user_input, &argv);
+        int argc = split_string(user_input, ' ', 6, 64, argv);
 
         if (strcmp(argv[0], "exit") == 0){
             printf("Exiting Larp OS...\n");
