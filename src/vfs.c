@@ -74,7 +74,7 @@ VFSNode *vfs_open(char *path) {
         }
     } else {
         // normal file
-        FILE *file = fopen(full_path, "wb+");
+        FILE *file = fopen(full_path, "rb");
 
         node->__data = file;
         node->type = VFS_FILE;
