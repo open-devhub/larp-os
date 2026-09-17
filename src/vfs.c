@@ -47,7 +47,7 @@ uint32_t __file_write(struct VFSNode *node, const void *buff, uint32_t size) {
     return fwrite(buff, size, 1, node->__data);
 }
 
-VFSNode *vfs_open(char *path) {
+VFSNode *vfs_open(char *path, enum vfs_file_mode mode) {
     char tokens[16][64];
     int depth = split_string(path, '/', 16, 64, tokens);
 
@@ -74,7 +74,13 @@ VFSNode *vfs_open(char *path) {
         }
     } else {
         // normal file
-        FILE *file = fopen(full_path, "rb");
+
+        FILE *file;
+        if (mode == VFS_MODE_READ || mode == 0) {
+            file = fopen(full_path, "rb");
+        } else if (mode == VFS_MODE_WRITE) {
+            file = fopen(full_path, "wb+");
+        }
 
         node->__data = file;
         node->type = VFS_FILE;

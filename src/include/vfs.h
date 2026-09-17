@@ -5,6 +5,11 @@
 #define VFS_MAX_PATH    256
 
 
+enum vfs_file_mode {
+    VFS_MODE_READ,
+    VFS_MODE_WRITE
+};
+
 enum vfs_entry_type {
     VFS_FILE,
     VFS_DIR,
@@ -26,7 +31,7 @@ typedef struct VFSNode {
 } VFSNode;
 
 
-VFSNode *vfs_open(char *path);
+VFSNode *vfs_open(char *path, enum vfs_file_mode mode);
 void vfs_close(VFSNode *node);
 
 uint32_t vfs_read(struct VFSNode *node, void *buff, uint32_t size);
