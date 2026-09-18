@@ -2,14 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "include/vfs.h"
-#include "include/bootloader.h"
-#include "include/split_string.h"
-
+#include <vfs.h>
+#include <bootloader.h>
+#include <split_string.h>
 
 #define OS_NAME         os_info[0]
 #define OS_VERSION      os_info[1]
 #define OS_HOSTNAME     os_info[2]
+
 
 int main() {
     /*
@@ -36,7 +36,7 @@ int main() {
         return -1;
     }
 
-    char user_input[50] = "";
+    char user_input[384] = { 0 };
     char argv[6][64];
     char larper_whoami[20] = "master larper";
 
@@ -70,13 +70,11 @@ int main() {
                 printf("%s\n", OS_HOSTNAME);
             } else if (argc == 1) {
                 printf("%s %s\n", OS_NAME, OS_VERSION);
-            } else if (strcmp(argv[1],"--help") == 0) {
+            } else if (strcmp(argv[1], "--help") == 0) {
                 printf("usage : uname -[argument]\n");
                 printf("        uname           Prints OS Kernel Name\n");
                 printf("        uname -n        Prints Hostname\n");
                 printf("        uname --help    Prints This Text\n");
-
-
             } else {
                 printf("uname: Invalid argument\n");
             }
@@ -86,7 +84,7 @@ int main() {
                 printf("usage: echo [text] \n");
             } else if (argc < 2) {
                 printf("\n");
-            } else{
+            } else {
                 for (int i = 1; i < argc; i++) {
                     fputs(argv[i], stdout);
 
@@ -96,7 +94,7 @@ int main() {
             }
 
 
-        } else if (strlen(user_input) == 0){
+        } else if (strlen(user_input) == 0) {
             continue;
         } else {
             printf("Unknown command: %s\n", argv[0]);
