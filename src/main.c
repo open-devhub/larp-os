@@ -29,13 +29,13 @@ int main() {
 
     int r = vfs_read(config_node, temp, 64);
     int os_info_split_count = split_string(temp, ';', 3, 24, os_info);
-    
+
     printf("%d %s\n", r, temp);
     free(temp);
     if (os_info_split_count != 3) {
         printf("Error: failed to parse /etc/os-info: %d\n", os_info_split_count);
         return -1;
-    }    
+    }
 
     char user_input[50] = "";
     char argv[6][64];
@@ -71,8 +71,14 @@ int main() {
                 printf("%s\n", OS_HOSTNAME);
             } else if (argc == 1) {
                 printf("%s %s\n", OS_NAME, OS_VERSION);
-            }
-            else {
+            } else if (strcmp(argv[1],"--help") == 0) {
+                printf("usage : uname -[argument]\n");
+                printf("        uname           Prints OS Kernel Name\n");
+                printf("        uname -n        Prints Hostname\n");
+                printf("        uname --help    Prints This Text\n");
+
+
+            } else {
                 printf("uname: Invalid argument\n");
             }
 
