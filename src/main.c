@@ -97,6 +97,19 @@ int main() {
             }
 
 
+        } else if (strcmp(argv[0],"ip") == 0) {
+
+            if (strcmp(argv[1],"a") == 0){
+                printf("1: lo: <LOOPBACK,UP> mtu 65536\n");
+                printf("    inet 127.0.0.1/8 scope host lo\n");
+                printf("\n");
+                printf("2: wlan0: <BROADCAST,MULTICAST,UP> mtu 1500\n");
+                printf("    link/ether 52:54:00:12:34:56 brd ff:ff:ff:ff:ff:ff\n");
+                printf("    inet 192.168.1.67/24 scope global wlan0\n");
+            } else{
+                printf("usage : ip a\n");
+            }
+
         } else if (strlen(user_input) == 0){
             continue;
         } else {
