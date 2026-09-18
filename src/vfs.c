@@ -12,8 +12,8 @@
 #include <unistd.h> // access()
 #endif
 
-#include "include/vfs.h"
-#include "include/split_string.h"
+#include <vfs.h>
+#include <split_string.h>
 
 
 uint32_t __device_not_readable(struct VFSNode *node, void *buff, uint32_t size) {
@@ -36,6 +36,15 @@ uint32_t __random_read(struct VFSNode *node, void *buff, uint32_t size) {
     memcpy(buff, ret, size);
     free(ret);
 
+    return size;
+}
+
+uint32_t __zero_read(struct VFSNode *node, void *buff, uint32_t size) {
+    memset(buff, 0, size);
+    return size;
+}
+
+uint32_t __null_write(struct VFSNode *node, const void *buff, uint32_t size) {
     return size;
 }
 
@@ -71,6 +80,12 @@ VFSNode *vfs_open(char *path, enum vfs_file_mode mode) {
         if (!strcmp(tokens[2], "random")) {
             node->write = __device_not_writable;
             node->read = __random_read;
+        } else if (!strcmp(tokens[2], "zero")) {
+            node->write = __device_not_writable;
+            node->read = __zero_read;
+        } else if (!strcmp(tokens[2], "null")) {
+            node->write = __null_write;
+            node->read = __device_not_readable;
         }
     } else {
         // normal file

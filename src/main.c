@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "include/vfs.h"
-#include "include/bootloader.h"
-#include "include/split_string.h"
+#include <vfs.h>
+#include <bootloader.h>
+#include <split_string.h>
 
 
 #define OS_NAME         os_info[0]
@@ -70,13 +70,11 @@ int main() {
                 printf("%s\n", OS_HOSTNAME);
             } else if (argc == 1) {
                 printf("%s %s\n", OS_NAME, OS_VERSION);
-            } else if (strcmp(argv[1],"--help") == 0) {
+            } else if (strcmp(argv[1], "--help") == 0) {
                 printf("usage : uname -[argument]\n");
                 printf("        uname           Prints OS Kernel Name\n");
                 printf("        uname -n        Prints Hostname\n");
                 printf("        uname --help    Prints This Text\n");
-
-
             } else {
                 printf("uname: Invalid argument\n");
             }
