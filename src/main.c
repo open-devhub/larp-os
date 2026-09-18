@@ -34,7 +34,7 @@ int main() {
     if (os_info_split_count != 3) {
         printf("Error: failed to parse /etc/os-info: %d\n", os_info_split_count);
         return -1;
-    }    
+    }
 
     char user_input[50] = "";
     char argv[6][64];
@@ -70,8 +70,14 @@ int main() {
                 printf("%s\n", OS_HOSTNAME);
             } else if (argc == 1) {
                 printf("%s %s\n", OS_NAME, OS_VERSION);
-            }
-            else {
+            } else if (strcmp(argv[1],"--help") == 0) {
+                printf("usage : uname -[argument]\n");
+                printf("        uname           Prints OS Kernel Name\n");
+                printf("        uname -n        Prints Hostname\n");
+                printf("        uname --help    Prints This Text\n");
+
+
+            } else {
                 printf("uname: Invalid argument\n");
             }
 
