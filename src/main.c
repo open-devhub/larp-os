@@ -107,6 +107,12 @@ int main() {
                 printf("usage : ip a\n");
             }
 
+        } else if (strcmp(argv[0],"clear") == 0) {
+              #ifdef _WIN32
+              system("cls");
+              #else
+              system("clear");
+              #endif
         } else if (strlen(user_input) == 0){
             continue;
         } else {
