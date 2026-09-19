@@ -83,11 +83,9 @@ int main() {
             }
 
         } else if (strncmp(argv[0], "echo", 4) == 0) {
-            if (strcmp(argv[1],"--help") == 0){
-                printf("usage: echo [text] \n");
-            } else if (argc < 2) {
+             if (argc < 2) {
                 printf("\n");
-            } else{
+                } else {
                 for (int i = 1; i < argc; i++) {
                     fputs(argv[i], stdout);
 
