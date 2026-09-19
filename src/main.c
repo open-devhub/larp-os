@@ -115,6 +115,7 @@ int main() {
               #endif
               // checks if you are windows or other operating systems
               // then runs clear for mac/linux and cls if you are on windows
+
         } else if (strlen(user_input) == 0){
             continue;
         } else {
